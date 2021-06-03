@@ -16,10 +16,11 @@ class AbrasilController extends Controller
      */
     public function index()
     {
-        $users = AbrasilCl::where('chave', '<>', null)->where('email', '<>', null)->first();
+        $userlocal = User::where('chave', '<>', null)->first();
+        $users = AbrasilCl::where('chave', $userlocal->chave)->first();
         $licencas = AbrasilLc::where('email', $users->email)->where('chave', $users->chave)->first();
 
-        return view('licencas.index', compact('licencas'));
+        return view('licencas.index', compact('licencas', 'userlocal'));
     }
 
     /**

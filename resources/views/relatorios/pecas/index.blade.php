@@ -13,15 +13,15 @@
                         <tr class="table-secondary">
                             <th colspan="8" class="text-center">Resumo de peças</th>
                         </tr>
-                        <tr class="table-active">
+                        <tr class="table-active text-center">
                             <th>Novas</th>
                             <th>Usadas</th>
                             <th>Remanufaturadas</th>
                         </tr>
                     </thead>
-                    
+
                     <tbody>
-                        <tr class="table-light">
+                        <tr class="table-light text-center">
                             <td><a href="{{ route('pecas.situacao', ['situacao' => 1]) }}" title="Peças novas">{{ $pecas->where('situacao', 1)->count() }}</a></td>
                             <td><a href="{{ route('pecas.situacao', ['situacao' => 2]) }}" title="Peças usadas">{{ $pecas->where('situacao', 2)->count() }}</a></td>
                             <td><a href="{{ route('pecas.situacao', ['situacao' => 3]) }}" title="Peças remanufaturadas">{{ $pecas->where('situacao', 3)->count() }}</a></td>

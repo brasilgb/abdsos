@@ -13,7 +13,7 @@
                         <tr class="table-secondary">
                             <th colspan="8" class="text-center">Resumo de agendamentos</th>
                         </tr>
-                        <tr class="table-active">
+                        <tr class="table-active text-center">
                             <th>Aguardando atend.</th>
                             <th>Em atendimento</th>
                             <th>Cancelado</th>
@@ -21,7 +21,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="table-light">
+                        <tr class="table-light text-center">
                             <td><a href="{{ route('agendas.status', ['status' => 1]) }}" title="Aguardando atendimento">{{ $agendas->where('status', 1)->count() }}</a></td>
                             <td><a href="{{ route('agendas.status', ['status' => 2]) }}" title="Em atendimento">{{ $agendas->where('status', 2)->count() }}</a></td>
                             <td><a href="{{ route('agendas.status', ['status' => 3]) }}" title="Cancelado">{{ $agendas->where('status', 3)->count() }}</a></td>

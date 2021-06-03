@@ -24,8 +24,8 @@
                         <div class="input-group-append">
                             <span class="input-group-text"><i class="fas fa-user"></i></span>
                         </div>
-                        <input type="text" name="name" class="form-control input_user" value="" required
-                            autocomplete="Seu nome" placeholder="Digite o seu nome" autofocus>
+                        <input type="text" name="name" class="form-control input_user @error('name') is-invalid @enderror" value="{{ old('name') }}"
+                            placeholder="Digite o seu nome" autofocus>
                         @error('name')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -37,8 +37,8 @@
                         <div class="input-group-append">
                             <span class="input-group-text"><i class="fas fa-user"></i></span>
                         </div>
-                        <input type="text" name="username" class="form-control input_user" value="administrador"
-                            required autocomplete="username" autofocus readonly>
+                        <input type="text" name="username" class="form-control input_user @error('username') is-invalid @enderror" value="administrador"
+                            autocomplete="username" autofocus readonly>
                         @error('username')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -50,8 +50,8 @@
                         <div class="input-group-append">
                             <span class="input-group-text"><i class="fas fa-at"></i></span>
                         </div>
-                        <input type="text" name="email" class="form-control input_user" value="{{ old('email') }}"
-                            placeholder="Digite o E-mail da compra" required autocomplete="email" autofocus>
+                        <input type="text" name="email" class="form-control input_user @error('email') is-invalid @enderror" value="{{ old('email') }}"
+                            placeholder="Digite o E-mail da compra" autofocus>
                         @error('email')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -63,13 +63,13 @@
                         <div class="input-group-append">
                             <span class="input-group-text"><i class="fas fa-unlock-alt"></i></span>
                         </div>
-                        <input type="text" name="chave" class="form-control input_user" value="{{ old('chave') }}"
-                            placeholder="Digite a chave que recebeu" required autocomplete="chave" autofocus>
-                        @error('chave')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                        @enderror
+                        <input type="text" name="chave" class="form-control input_user  @error('chave') is-invalid @enderror" value="{{ old('chave') }}"
+                            placeholder="Digite a chave que recebeu" autofocus>
+                            @error('chave')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
                     </div>
 
                     <div class="input-group mb-3">
@@ -116,7 +116,7 @@
         </div>
     </div>
 </div>
-<script>
+{{-- <script>
     $("#register").validate({
             rules: {
                 name: {
@@ -127,7 +127,8 @@
                     email: true
                 },
                 chave: {
-                    required: true
+                    required: true,
+                    minlength: 40
                 },
                 password: {
                     required: true,
@@ -148,7 +149,8 @@
                     email: 'Digite um e-mail válido!'
                 },
                 chave: {
-                    required: 'Digite a chave!'
+                    required: 'Digite a chave!',
+                    minlength: 'Mínimo 40 caracteres'
                 },
                 password: {
                     required: 'Digite a senha!',
@@ -162,5 +164,5 @@
             }
         });
 
-</script>
+</script> --}}
 @endsection

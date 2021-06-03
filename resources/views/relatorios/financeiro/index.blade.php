@@ -13,7 +13,7 @@
                         <tr class="table-secondary">
                             <th colspan="4" class="text-center">Resumo de pagamentos</th>
                         </tr>
-                        <tr class="table-active">
+                        <tr class="table-active text-center">
                             <th>Pagamento aberto</th>
                             <th>Somente serviços</th>
                             <th>Somente peças</th>
@@ -21,7 +21,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="table-light">
+                        <tr class="table-light text-center">
                             <td><a href="{{ route('ordens.pagamento', ['pagamento' => 1]) }}"
                                     title="Pagamento aberto">{{ $ordens->where('pagamento', 1)->count() }}</a></td>
                             <td><a href="{{ route('ordens.pagamento', ['pagamento' => 2]) }}"

@@ -52,12 +52,21 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+        $message = array(
+            'required' => 'O campo :attribute deve ser preenchido!',
+            'email' => 'O campo :attribute não é válido!',
+            'unique' => 'O campo :attribute já está em uso, digite outro!',
+            'min' => 'A :attribute deve ter no mínimo 40 caracteres!',
+            'exists' => 'A :attribute adicionada é inválida!'
+        );
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
-            'username' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'username' => ['required', 'string', 'max:255', 'unique:users'],
+            'email' => ['required', 'string','email', 'unique:mysql2.sos_clientes'],
+            'chave' => ['required', 'string',  'min:40','unique:mysql2.sos_clientes','exists:mysql2.sos_licencas'],
             'password' => ['required', 'string', 'min:6', 'confirmed'],
-        ]);
+        ], $message);
+
     }
 
     /**

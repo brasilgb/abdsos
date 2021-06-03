@@ -13,7 +13,7 @@
                         <tr class="table-secondary">
                             <th colspan="8" class="text-center">Resumo de Ordens de Serviço</th>
                         </tr>
-                        <tr class="table-active">
+                        <tr class="table-active text-center">
                             <th>Avaliação</th>
                             <th>Orç. gerados</th>
                             <th>Orç. aprovados</th>
@@ -25,7 +25,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="table-light">
+                        <tr class="table-light text-center">
                             <td><a class="" href="{{ route('ordens.status', ['status' => 1]) }}" title="Ordens de serviço em avaliação">{{ $ordens->where('status', 1)->count() }}</a></td>
                             <td><a href="{{ route('ordens.status', ['status' => 2]) }}" title="Ordens de serviço em avaliação">{{ $ordens->where('status', 2)->count() }}</a></td>
                             <td><a href="{{ route('ordens.status', ['status' => 3]) }}" title="Ordens de serviço em avaliação">{{ $ordens->where('status', 3)->count() }}</a></td>

@@ -21,7 +21,7 @@
 
     <div class="card-body">
         @include("flash::message")
-        <form action="{{ route('abrasil.update', ['abrasil' => $licencas == false ?'1':$licencas->chave]) }}" method="POST">
+        <form action="{{ route('abrasil.update', ['abrasil' => $userlocal->chave]) }}" method="POST">
             @method('PUT')
             @csrf
             @if (!$licencas)
