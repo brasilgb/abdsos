@@ -1,0 +1,19 @@
+@page {
+    margin: 1.2cm 0cm 1cm 7mm;
+}
+div.etiqueta{
+text-align: center;
+border: 1px solid rgb(255, 255, 255);
+}
+div.nomempresa{
+margin-top: 2px;
+font-size: 12px;
+}
+div.numordem{
+margin-top: 2px;
+font-size: 14px;
+}
+div.telempresa{
+margin-bottom: 2px;
+font-size: 12px;
+}

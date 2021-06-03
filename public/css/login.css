@@ -1,0 +1,93 @@
+body,
+html {
+    background-image: linear-gradient(to bottom, #f0f0f0, #eaeaea, #e4e4e4, #deddde, #d9d7d8, #d8d7d7, #d8d6d7, #d7d6d6, #dcdbdb, #e1e0e1, #e6e6e6, #ebebeb);
+}
+/*
+Tela de login
+*/
+.container{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center
+}
+.user_card {
+    height: auto;
+    width: 400px;
+    margin-top: auto;
+    margin-bottom: auto;
+    position: relative;
+    padding-top: 20px;
+
+}
+
+.user_card_retype {
+    height: 200px;
+    width: 600px;
+}
+
+.brand_logo_container {
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    background: #ffffff;
+    padding: 0px;
+    text-align: center;
+}
+
+.brand_logo {
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+.form_container {
+    margin: 20px 40px;
+}
+
+.form_container form{
+    width: 100%;
+}
+/*
+.login_btn {
+    width: 100%;
+    color: white !important;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 0.2rem;
+    border: 1px solid #ffffff;
+} */
+/*
+.login_btn:focus {
+    box-shadow: none !important;
+    outline: 0px !important;
+} */
+
+.login_container {
+    padding: 0 2rem;
+}
+
+.input_pass{
+    width: 200px!important;
+}
+.input_user,
+:focus {
+    box-shadow: none !important;
+    outline: 0px !important;
+    width: 200px!important;
+}
+
+/* .custom-checkbox .custom-control-input:checked~.custom-control-label::before {
+    background: #123A91 !important;
+} */
+
+/* .input-group-text {
+    background: #123A91 !important;
+    color: white !important;
+    border: 0 !important;
+    border-radius: 0.25rem 0 0 0.25rem !important;
+} */

@@ -1,0 +1,194 @@
+html,
+body {
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    background: rgb(221, 221, 221);
+}
+
+#wrap {
+    min-height: 99vh;
+}
+
+#main {
+    overflow: auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    /* this needs to be bigger than footer height*/
+}
+
+.footer {
+    position: relative;
+    margin-top: -170px;
+    /* negative value of footer height */
+    height: 40px;
+    clear: both;
+    padding-top: 40px;
+    font-size: 0.9rem;
+    background-color: rgb(233, 233, 233);
+    border-top: 2px solid #ffffff;
+}
+.btn-search{
+    border: 1px solid rgb(209, 209, 209);
+}
+.card, .modal-content{
+    border: 1px solid #fff;
+}
+.card-body, .modal-content{
+    background-color: #F8F9FA;
+}
+.card-header, .card-footer, .modal-header, .modal-footer{
+    background-color: #F0F1F2;
+}
+thead > tr{
+    background-color: #EBECED;
+}
+.error{
+    display: block;
+    color: rgb(211, 2, 2);
+    text-align: left!important;
+}
+.col-form-label{
+    font-size: 1rem;
+    color: rgb(53, 53, 53);
+    font-weight: 500;
+}
+
+/*FadeIn transição de páginas*/
+
+@-webkit-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-o-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.fadeIn {
+    -webkit-animation: fadeIn 1.5s ease-in-out;
+    -moz-animation: fadeIn 1.5s ease-in-out;
+    -o-animation: fadeIn 1.5s ease-in-out;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.brand-image {
+    margin: 0!important;
+    padding: 0!important;
+    max-height: 40px!important;
+    width: auto;
+}
+
+.brand-image img {
+    margin: 0!important;
+    padding: 0!important;
+    max-height: 40px!important;
+    width: 50px!important;
+    border:1px solid #fff
+}
+
+.font-kpi{
+    font-size: 0.8rem!important;
+}
+/*Boxes home */
+.small-box {
+    border-radius: 2px;
+    position: relative;
+    display: block;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+}
+
+.small-box > .inner {
+    padding: 10px;
+}
+.small-box .icon {
+    -webkit-transition: all .3s linear;
+    -o-transition: all .3s linear;
+    transition: all .3s linear;
+    position: absolute;
+    top: -10px;
+    right: 10px;
+    z-index: 0;
+    font-size: 90px;
+    color: rgba(0,0,0,0.15);
+}
+.small-box > .small-box-footer {
+    position: relative;
+    text-align: center;
+    padding: 3px 0;
+    color: #fff;
+    color: rgba(255,255,255,0.8);
+    display: block;
+    z-index: 10;
+    background: rgba(0,0,0,0.1);
+    text-decoration: none;
+}
+.btn-app > .fa {
+    font-size: 20px;
+    display: block;
+}
+.btn-app {
+    border-radius: 3px;
+    position: relative;
+    padding: 15px 5px;
+    margin: 0 0 10px 10px;
+    min-width: 80px;
+    max-width: 80px;
+    height: 100px;
+    text-align: center;
+    font-size: 12px;
+}
+.mb-4, .my-4 {
+    margin-bottom: 1.5rem !important;
+}
+a[disabled] {
+    pointer-events: none;
+    cursor: default;
+ }
+ .breadcrumb {
+     background-color: transparent!important;
+     float: right;
+ }
+ .text-header-ordem {
+     font-size: 1.4rem!important;
+ }
+.table-overflow{
+    overflow: auto;
+    height: 250px;
+}
+.table-fixa{
+    height: 250px!important;
+}
+
+
+
+
