@@ -22,7 +22,7 @@
                 </li>
                 <li class="nav-item">
                     <a title="Ordens" class="{{ (request()->is('ordens*')) ? 'active' : '' }} nav-link"
-                        href="{{route('ordens.index')}}"><i class="fa fa-tools"></i> Ordens</a>
+                        href="{{route('ordens.index')}}"><i class="fa fa-tools"></i> Ordens de serviço</a>
                 </li>
                 <li class="nav-item">
                     <a class="{{ (request()->is('agendas*')) ? 'active' : '' }} nav-link"
@@ -30,7 +30,7 @@
                 </li>
                 <li class="nav-item">
                     <a class="{{ (request()->is('tarefas*')) ? 'active' : '' }} nav-link"
-                        href="{{route('tarefas.index')}}"><i class="fa fa-check-square"></i> Tarefas</a>
+                        href="{{route('tarefas.index')}}"><i class="fa fa-check-square"></i> Tarefas internas</a>
                 </li>
                 <li class="nav-item">
                     <a title="Peças" class="{{ (request()->is('pecas*')) ? 'active' : '' }} nav-link"
