@@ -38,6 +38,7 @@
                 <table id="tb-tarefas" class="table table-condensed table-striped mb-0">
                     <thead>
                         <tr class="text-left">
+                            <th>#ID</th>
                             <th>Descritivo</th>
                             <th>Início</th>
                             <th>Previsão</th>
@@ -49,6 +50,7 @@
                     <tbody>
                         @forelse ($tarefas as $tarefa)
                             <tr class="text-left">
+                                <td class="align-middle">{{ $tarefa->id_tarefa }}</td>
                                 <td class="align-middle">{{ $tarefa->descritivo }}</td>
                                 <td class="align-middle">{{ date('d/m/Y', strtotime($tarefa->data_inicio)) }}
                                     {{ date('H:i', strtotime($tarefa->hora_inicio)) }}</td>
@@ -98,7 +100,7 @@
 
                                     <button class="btn btn-danger border border-white shadow" data-toggle="modal"
                                         onclick="deleteData({{ $tarefa->id_tarefa }})" data-target="#DeleteModal"><i
-                                            class="fa fa-trash"></i></button>
+                                            class="fa fa-trash-alt"></i></button>
                                 </td>
                             </tr>
                     </tbody>
@@ -124,7 +126,7 @@
                 <form action="" id="deleteForm" method="post">
                     <div class="modal-content">
                         <div class="modal-header bg-gradient-danger">
-                            <h4 class="modal-title"><i class="fa fa-exclamation-triangle"></i> Confirmar exclusão</h4>
+                            <h4 class="modal-title"><i class="fa fa-check-circle"></i> Remover tarefa</h4>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">×</span>
                             </button>
@@ -132,13 +134,13 @@
                         <div class="modal-body">
                             @csrf
                             @method('DELETE')
-                            <p class="text-center">Tem certeza de que deseja excluir esta tarefa?
+                            <p class=""><i class="fa fa-exclamation-triangle"></i> Tem certeza de que deseja excluir esta tarefa?
                             </p>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary border border-white shadow" data-dismiss="modal"><i
-                                    class="fa fa-sign-out-alt"></i> Sair</button>
-                            <button type="submit" name="" class="btn btn-danger border border-white shadow" data-dismiss="modal"
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal"><i
+                                    class="fa fa-times"></i> Cancalar</button>
+                            <button type="submit" name="" class="btn btn-danger" data-dismiss="modal"
                                 onclick="formSubmit()"><i class="fa fa-trash"></i> Excluir</button>
                         </div>
                     </div>

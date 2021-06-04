@@ -141,7 +141,7 @@ class BackupController extends Controller
     {
         $this->createbackup();
         flash('<i class="fa fa-check"></i> Backup efetuado com sucesso!')->success();
-        return redirect()->route('home');
+        return redirect()->route('ferramentas.index');
     }
 
     public function createbackup()
@@ -170,6 +170,7 @@ class BackupController extends Controller
             $dump = "C:\webserver\mariadb\bin\mysqldump -u {$username} -p{$password} -h {$host} {$database} > {$file}";
             system($dump);
         }
+
         return $backup->local;
     }
 }

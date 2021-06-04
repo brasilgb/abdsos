@@ -36,7 +36,7 @@ class UsuarioController extends Controller
     public function busca(Request $request)
     {
         $term = $request->input('term');
-        $usuarios = $this->user->where('nome', $term)->paginate(15);
+        $usuarios = $this->user->where('name', $term)->paginate(15);
         return view('usuarios.index', compact('users', 'term'));
     }
     /**

@@ -18,6 +18,7 @@ class Empresa extends Model
         'cnpj',
         'logo',
         'endereco',
+        'numero',
         'bairro',
         'cidade',
         'uf',

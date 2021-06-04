@@ -45,7 +45,8 @@ class ClienteController extends Controller
      */
     public function create()
     {
-        return view('clientes.create');
+        $estados = $this->estados();
+        return view('clientes.create', compact('estados'));
     }
 
     /**
@@ -91,7 +92,8 @@ class ClienteController extends Controller
      */
     public function show(Cliente $cliente)
     {
-        return view('clientes.edit', compact('cliente'));
+        $estados = $this->estados();
+        return view('clientes.edit', compact('cliente', 'estados'));
     }
 
     /**
@@ -137,8 +139,8 @@ class ClienteController extends Controller
         try {
             $data['nascimento'] = Carbon::createFromFormat("d/m/Y", $request->nascimento)->format("Y-m-d");
             $cliente->update($data);
-            flash('<i class="fa fa-check"></i> Cliente salvo com sucesso!')->success();
-            return redirect()->route('clientes.show', ['cliente' => $cliente->id_cliente]);
+            // flash('<i class="fa fa-check"></i> Cliente salvo com sucesso!')->success();
+            return redirect()->route('clientes.show', ['cliente' => $cliente->id_cliente])->with('success','Cliente salvo com sucesso!');;
         } catch (\Exception $e) {
             $message = 'Erro ao inserir cliente!';
             if (env('APP_DEBUG')) {
@@ -178,5 +180,40 @@ class ClienteController extends Controller
             $response[] = ['value' => $cliente->id_cliente, 'label' => $cliente->cliente];
         }
         return response()->json($response);
+    }
+
+    /**
+     * Estados
+     */
+    public function estados(){
+        return [
+            'AC' => 'AC - Acre',
+            'AL' => 'AL - Alagoas',
+            'AP' => 'AP - Amapá',
+            'AM' => 'AM - Amazonas',
+            'BA' => 'BA - Bahia',
+            'CE' => 'CE - Ceará',
+            'DF' => 'DF - Distrito Federal',
+            'ES' => 'ES - Espírito Santo',
+            'GO' => 'GO - Goiás',
+            'MA' => 'MA - Maranhão',
+            'MT' => 'MT - Mato Grosso',
+            'MS' => 'MS - Mato Grosso do Sul',
+            'MG' => 'MG - Minas Gerais',
+            'PA' => 'PA - Pará',
+            'PB' => 'PB - Paraíba',
+            'PR' => 'PR - Paraná',
+            'PE' => 'PE - Pernambuco',
+            'PI' => 'PI - Piauí',
+            'RJ' => 'RJ - Rio de Janeiro',
+            'RN' => 'RN - Rio Grande do Norte',
+            'RS' => 'RS - Rio Grande do Sul',
+            'RO' => 'RO - Rondônia',
+            'RR' => 'RR - Roraima',
+            'SC' => 'SC - Santa Catarina',
+            'SP' => 'SP - São Paulo',
+            'SE' => 'SE - Sergipe',
+            'TO' => 'TO - Tocantins',
+            ];
     }
 }

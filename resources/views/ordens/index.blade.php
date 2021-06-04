@@ -119,12 +119,12 @@
                                 @if ($ordem->status == 8)
                                     <button
                                         onclick="window.open('{{ route('ordens.reciboentrega', ['orden' => $ordem->id_ordem]) }}', '{{ $linkname }}')"
-                                        class="btn btn-sm btn-success" title="Emitir recibo de entrega"><i
+                                        class="btn btn-success border border-white shadow" title="Emitir recibo de entrega"><i
                                             class="fas fa-receipt"></i></button>
                                 @else
                                     <button
                                         onclick="window.open('{{ route('ordens.reciborecebe', ['orden' => $ordem->id_ordem]) }}', '{{ $linkname }}')"
-                                        class="btn btn btn-secondary border border-white shadow"
+                                        class="btn btn-secondary border border-white shadow"
                                         title="Emitir recibo de recebimento"><i class="fas fa-receipt"></i></button>
                                 @endif
 
@@ -153,12 +153,12 @@
     </div>
 
     <div id="DeleteModal" class="modal fade" role="dialog">
-        <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-dialog" role="document">
             <!-- Modal content-->
             <form action="" id="deleteForm" method="post">
                 <div class="modal-content">
-                    <div class="modal-header bg-danger">
-                        <h4 class="modal-title text-light"><i class="fa fa-check-circle"></i> Remover ordem</h4>
+                    <div class="modal-header">
+                        <h4 class="modal-title"><i class="fa fa-check-circle"></i> Remover ordem</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">×</span>
                         </button>
@@ -166,11 +166,11 @@
                     <div class="modal-body">
                         @csrf
                         @method('DELETE')
-                        <p class="text-center text-danger"><i class="fa fa-exclamation-triangle"></i> Tem certeza de que
+                        <p class=""><i class="fa fa-exclamation-triangle"></i> Tem certeza de que
                             deseja remover esta ordem?</p>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-success" data-dismiss="modal"><i class="fa fa-times"></i>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fa fa-times"></i>
                             Cancelar</button>
                         <button type="submit" name="" class="btn btn-danger" data-dismiss="modal" onclick="formSubmit()"><i
                                 class="fa fa-check"></i> Excluir</button>
@@ -215,24 +215,6 @@
                 return false;
             }
         });
-
-        // Combobox status
-        // $(function(){
-        //     $("#status").change(function(e){
-        //         e.preventDefault();
-        //         _token = $("input[name='_token']").val();
-        //         var status = $(this).val();
-        //         $.ajax({
-        //             url: '{{ route('ordens.index') }}',
-        //             type: 'POST',
-        //             dataType: "json",
-        //             data: {'status': status, '_token': _token}
-        //         }).done(function(data){
-        //             console.log(data);
-        //         });
-        //     });
-        // });
-
     </script>
 
 @endsection

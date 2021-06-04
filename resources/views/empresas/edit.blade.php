@@ -26,7 +26,7 @@
 
     <div class="card-body">
         @include("flash::message")
-        <form action="{{ route('empresas.update', ['empresa' => $empresa->id_empresa]) }}" method="POST"
+        <form id="formempresa" action="{{ route('empresas.update', ['empresa' => $empresa->id_empresa]) }}" method="POST"
             enctype="multipart/form-data" autocomplete="off">
             @method('PUT')
             @csrf
@@ -102,6 +102,19 @@
 
             <div class="form-group row">
                 <label class="col-sm-3 col-form-label" for=""><span class="text-danger">*</span>
+                    Número:</label>
+                <div class="col-sm-7">
+                    <input type="text" class="form-control" name="numero"
+                        value="{{ old('numero', $empresa->numero) }}">
+                    @error('numero')
+                    <div class="alert alert-danger"><i class="fa fa-exclamation-triangle"></i> {{ $message }}
+                    </div>
+                    @enderror
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label" for=""><span class="text-danger">*</span>
                     Bairro:</label>
                 <div class="col-sm-7">
                     <input type="text" class="form-control" name="bairro" value="{{ old('bairro', $empresa->bairro) }}">
@@ -126,10 +139,15 @@
 
             <div class="form-group row">
                 <label class="col-sm-3 col-form-label" for=""><span class="text-danger">*</span>
-                    UF:</label>
-                <div class="col-sm-7">
-                    <input type="text" class="form-control" name="uf" value="{{ old('uf', $empresa->uf) }}">
-                    @error('uf')
+                    UF: <small><i class="text-black50">(Estado)</i></small></label>
+                    <div class="col-sm-7">
+                        <select class="custom-select my-1 mr-sm-2" name="uf" id="uf">
+                            <option value="">Selecione a UF - Estado</option>
+                            @foreach ($estados as $key => $value)
+                            <option value="{{ $key }}" @if($key == $empresa->uf) selected @endif>{{ $value }}</option>
+                            @endforeach
+                        </select>
+                        @error('uf')
                     <div class="alert alert-danger"><i class="fa fa-exclamation-triangle"></i> {{ $message }}
                     </div>
                     @enderror
@@ -220,5 +238,5 @@
         });
 
     </script>
-
+ @include('empresas/script')
     @endsection

@@ -20,6 +20,7 @@ class CreateEmpresasTable extends Migration
             $table->string('cnpj');
             $table->string('logo')->nullable();
             $table->string('endereco');
+            $table->string('numero');
             $table->string('bairro');
             $table->string('cidade');
             $table->string('uf');

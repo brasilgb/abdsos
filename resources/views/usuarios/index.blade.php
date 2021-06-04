@@ -33,7 +33,7 @@
     </div>
     <div class="card-body px-4 py-2">
             @include("flash::message")
-            
+
             <div class="table-responsive">
                 <table id="tb-tarefas" class="table table-condensed table-striped mb-0">
                     <tr>
@@ -92,12 +92,12 @@
     </div>
 
     <div id="DeleteModal" class="modal fade" role="dialog">
-        <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-dialog" role="document">
             <!-- Modal content-->
             <form action="" id="deleteForm" method="post">
                 <div class="modal-content">
-                    <div class="modal-header bg-danger">
-                        <h4 class="modal-title text-light"><i class="fa fa-check-circle"></i> Remover usuário</h4>
+                    <div class="modal-header">
+                        <h4 class="modal-title"><i class="fa fa-check-circle"></i> Remover usuário</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">×</span>
                         </button>
@@ -105,11 +105,11 @@
                     <div class="modal-body">
                         @csrf
                         @method('DELETE')
-                        <p class="text-center text-danger"><i class="fa fa-exclamation-triangle"></i> Tem certeza de que
+                        <p class=""><i class="fa fa-exclamation-triangle"></i> Tem certeza de que
                             deseja remover este usuário?</p>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-success" data-dismiss="modal"><i class="fa fa-times"></i>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fa fa-times"></i>
                             Cancelar</button>
                         <button type="submit" name="" class="btn btn-danger" data-dismiss="modal" onclick="formSubmit()"><i
                                 class="fa fa-check"></i> Excluir</button>

@@ -1,6 +1,6 @@
 <script>
     $( "#dateform,#searchform").inputmask('99/99/9999');
-    $( "#timeform").inputmask('99:99:99');
+    $( "#agendamento").inputmask('99:99:99');
     $( "#hora1").inputmask('99:99');
     $( "#hora2").inputmask('99:99');
     $( ".telefone").inputmask('(99)9999-9999');

@@ -26,7 +26,7 @@
 
     <div class="card-body">
         @include("flash::message")
-        <form action="{{ route('backups.store') }}" method="POST" autocomplete="off">
+        <form id="formbackup" action="{{ route('backups.store') }}" method="POST" autocomplete="off">
             @method('POST')
             @csrf
 
@@ -34,7 +34,7 @@
                 <label class="col-sm-3 col-form-label" for=""><span class="text-danger">*</span>
                     Local:</label>
                 <div class="col-sm-7">
-                    <input id="" type="text" class="form-control" name="local" value="{{ old('local') }}"
+                    <input id="local" type="text" class="form-control" name="local" value="{{ old('local') }}"
                         placeholder="G:\backup">
                     @error('local')
                     <div class="alert alert-danger"><i class="fa fa-exclamation-triangle"></i> {{ $message }}
@@ -47,7 +47,7 @@
                 <label class="col-sm-3 col-form-label" for=""><span class="text-danger">*</span>
                     Agendamento <i>(Inserir hora)</i>:</label>
                 <div class="col-sm-7">
-                    <input id="timeform" type="text" class="form-control" name="agendamento"
+                    <input id="agendamento" type="text" class="form-control" name="agendamento"
                         value="{{ old('agendamento') }}">
                     @error('agendamento')
                     <div class="alert alert-danger"><i class="fa fa-exclamation-triangle"></i> {{ $message }}
@@ -55,23 +55,20 @@
                     @enderror
                 </div>
             </div>
-        </div>
-        <div class="card-footer">
-                <div class="row">
-                    <div class="col pt-2">
-                        <span class="text-danger">*Obrigatório</span>
-                    </div>
-                    <div class="col text-right">
-                        <button id="btngeraltarefa" type="submit"
-                            class="btn btn-primary border border-white shadow mr-0"><i class="fa fa-save"></i>
-                            Salvar</button>
-                    </div>
-                </div>
-            </div>
-        </form>
     </div>
-    <script>
-
-    </script>
-
-    @endsection
+    <div class="card-footer">
+        <div class="row">
+            <div class="col pt-2">
+                <span class="text-danger">*Obrigatório</span>
+            </div>
+            <div class="col text-right">
+                <button id="btngeraltarefa" type="submit" class="btn btn-primary border border-white shadow mr-0"><i
+                        class="fa fa-save"></i>
+                    Salvar</button>
+            </div>
+        </div>
+    </div>
+    </form>
+</div>
+@include('backups/script')
+@endsection

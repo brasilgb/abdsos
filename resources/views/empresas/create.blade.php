@@ -25,7 +25,7 @@
     </div>
     <div class="card-body">
         @include("flash::message")
-        <form action="{{ route('empresas.store') }}" method="POST" enctype="multipart/form-data" autocomplete="off">
+        <form id="formempresa" action="{{ route('empresas.store') }}" method="POST" enctype="multipart/form-data" autocomplete="off">
             @method('POST')
             @csrf
             <div class="form-group row">
@@ -95,6 +95,18 @@
 
             <div class="form-group row">
                 <label class="col-sm-3 col-form-label" for=""><span class="text-danger">*</span>
+                    Número:</label>
+                <div class="col-sm-7">
+                    <input type="text" class="form-control" name="numero" value="{{ old('numero') }}">
+                    @error('numero')
+                    <div class="alert alert-danger"><i class="fa fa-exclamation-triangle"></i> {{ $message }}
+                    </div>
+                    @enderror
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label" for=""><span class="text-danger">*</span>
                     Bairro:</label>
                 <div class="col-sm-7">
                     <input type="text" class="form-control" name="bairro" value="{{ old('bairro') }}">
@@ -119,9 +131,14 @@
 
             <div class="form-group row">
                 <label class="col-sm-3 col-form-label" for=""><span class="text-danger">*</span>
-                    UF:</label>
+                    UF: <small><i class="text-black50">(Estado)</i></small></label>
                 <div class="col-sm-7">
-                    <input type="text" class="form-control" name="uf" value="{{ old('uf') }}">
+                    <select class="custom-select my-1 mr-sm-2" name="uf" id="uf">
+                        <option value="">Selecione a UF - Estado</option>
+                        @foreach ($estados as $key => $value)
+                        <option value="{{ $key }}">{{ $value }}</option>
+                        @endforeach
+                    </select>
                     @error('uf')
                     <div class="alert alert-danger"><i class="fa fa-exclamation-triangle"></i> {{ $message }}
                     </div>
@@ -170,10 +187,6 @@
                 <div class="col-sm-7">
                     <input type="text" class="form-control" name="site" placeholder="http://dominio.com"
                         value="{{ old('site') }}">
-                    @error('site')
-                    <div class="alert alert-danger"><i class="fa fa-exclamation-triangle"></i> {{ $message }}
-                    </div>
-                    @enderror
                 </div>
             </div>
 
@@ -210,5 +223,5 @@
         });
 
     </script>
-
+ @include('empresas/script')
     @endsection

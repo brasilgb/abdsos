@@ -4,7 +4,7 @@
                     @csrf
                     @method('POST')
                     <div class="input-group">
-                        <select class="w-75 custom-select form-control " name="status">
+                        <select class="w-75 custom-select form-control " name="status" required>
                             <option value="">Filtrar ordens por status</option>
                             <option value="1">Em avaliação</option>
                             <option value="2">Orçamento gerado</option>
@@ -30,7 +30,7 @@
                     @method('POST')
                     <div class="input-group">
                         <input id="input-search" type="text" name="term" class="form-control rounded-left"
-                            name="term" placeholder="Buscar ordem">
+                            name="term" placeholder="Buscar ordem" required>
                         <div class="input-group-append">
                             <button class="btn btn-search shadow-sm" type="submit"><i
                                     class="fa fa-search"></i></button>

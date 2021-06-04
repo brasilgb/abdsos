@@ -26,13 +26,13 @@
 
     <div class="card-body">
         @include("flash::message")
-        <form action="{{ route('mensagens.update', ['mensagem' => $mensagem->id_mensagem]) }}" method="POST"
+        <form id="formmensagem" action="{{ route('mensagens.update', ['mensagem' => $mensagem->id_mensagem]) }}" method="POST"
             autocomplete="off">
             @method('PUT')
             @csrf
 
             <div class="form-group row">
-                <label class="col-sm-3 col-form-label" for="">Recibo entrada:</label>
+                <label class="col-sm-3 col-form-label" for=""><span class="text-danger">*</span>Recibo entrada:</label>
                 <div class="col-sm-7">
                     <textarea rows="4" type="text" class="form-control"
                         name="recebimento_recibo">{{ old('recebimento_recibo', $mensagem->recebimento_recibo) }}</textarea>
@@ -44,7 +44,7 @@
             </div>
 
             <div class="form-group row">
-                <label class="col-sm-3 col-form-label" for="">Recibo entrega:</label>
+                <label class="col-sm-3 col-form-label" for=""><span class="text-danger">*</span>Recibo entrega:</label>
                 <div class="col-sm-7">
                     <textarea rows="4" type="text" class="form-control"
                         name="entrega_recibo">{{ old('entrega_recibo', $mensagem->entrega_recibo) }}</textarea>
@@ -56,7 +56,7 @@
             </div>
 
             <div class="form-group row">
-                <label class="col-sm-3 col-form-label" for="">E-mail agendamento:</label>
+                <label class="col-sm-3 col-form-label" for=""><span class="text-danger">*</span>E-mail agendamento:</label>
                 <div class="col-sm-7">
                     <textarea rows="4" type="text" class="form-control"
                         name="mensagem_agendamento">{{ old('mensagem_agendamento', $mensagem->mensagem_agendamento) }}</textarea>
@@ -68,7 +68,7 @@
             </div>
 
             <div class="form-group row">
-                <label class="col-sm-3 col-form-label" for="">E-mail serviço concluído:</label>
+                <label class="col-sm-3 col-form-label" for=""><span class="text-danger">*</span>E-mail serviço concluído:</label>
                 <div class="col-sm-7">
                     <textarea rows="4" type="text" class="form-control"
                         name="mensagem_servico_concluido">{{ old('mensagem_servico_concluido', $mensagem->mensagem_servico_concluido) }}</textarea>
@@ -93,8 +93,5 @@
             </div>
         </form>
     </div>
-    <script>
-
-    </script>
-
+    @include('mensagens/script')
     @endsection

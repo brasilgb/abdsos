@@ -67,7 +67,18 @@
                     </div>
                 </div>
             </div>
+        </form>
 
+        <form class="border-top" action="{{ route('configuracoes.gerabackup') }}" method="GET">
+            @csrf
+            @method('GET')
+            <div class="form-group row mt-4">
+                <label class="col-sm-3 col-form-label" for="">
+                    Gerar backup</label>
+                <div class="col-sm-7">
+                    <button id="" class="btn btn-primary" name="usuario"><i class="fa fa-database"></i> Gerar backup</button>
+                </div>
+            </div>
         </form>
     </div>
 </div>

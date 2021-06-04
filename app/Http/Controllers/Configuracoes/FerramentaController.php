@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Configuracoes;
 
 use App\Http\Controllers\Controller;
-use App\Models\Abrasil;
 use App\Models\Ferramenta;
 use App\Models\Ordem;
 use App\Models\Empresa;

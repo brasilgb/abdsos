@@ -89,7 +89,7 @@
             </div>
             <div class="form-group row">
                 <label class="col-sm-3 col-form-label" for=""><span class="text-danger">*</span>
-                    Logradouro:</label>
+                    Logradouro: <small><i class="text-black50">(Av., Rua, Linha)</i></small></label>
                 <div class="col-sm-7">
                     <input type="text" class="form-control" name="logradouro" value="{{ old('logradouro') }}">
                     @error('logradouro')
@@ -111,7 +111,7 @@
             </div>
             <div class="form-group row">
                 <label class="col-sm-3 col-form-label" for=""><span class="text-danger">*</span>
-                    Complemento:</label>
+                    Complemento: <small><i class="text-black50">(Casa, Sala, Box)</i></small></label>
                 <div class="col-sm-7">
                     <input type="text" class="form-control" name="complemento" value="{{ old('complemento') }}">
                 </div>
@@ -127,13 +127,19 @@
                     @enderror
                 </div>
             </div>
+
             <div class="form-group row">
                 <label class="col-sm-3 col-form-label" for=""><span class="text-danger">*</span>
-                    UF:</label>
+                    UF: <small><i class="text-black50">(Estado)</i></small></label>
                 <div class="col-sm-7">
-                    <input type="text" class="form-control" name="estado" value="{{ old('estado') }}">
+                    <select class="custom-select my-1 mr-sm-2" name="estado" id="estado">
+                        <option value="">Selecione a UF - Estado</option>
+                        @foreach ($estados as $key => $value)
+                        <option value="{{ $key }}">{{ $value }}</option>
+                        @endforeach
+                    </select>
                     @error('estado')
-                    <div class="alert alert-danger"><i class="fa fa-exclamation-triangle"></i> UF</div>
+                    <div class="alert alert-danger"><i class="fa fa-exclamation-triangle"></i> {{ $message }}</div>
                     @enderror
                 </div>
             </div>

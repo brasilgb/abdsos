@@ -26,7 +26,7 @@
 
     <div class="card-body">
         @include("flash::message")
-        <form action="{{ route('backups.update', ['backup' => $backup->id_backup]) }}" method="POST" autocomplete="off">
+        <form id="formbackup" action="{{ route('backups.update', ['backup' => $backup->id_backup]) }}" method="POST" autocomplete="off">
             @method('PUT')
             @csrf
 
@@ -34,7 +34,7 @@
                 <label class="col-sm-3 col-form-label" for=""><span class="text-danger">*</span>
                     Local:</label>
                 <div class="col-sm-7">
-                    <input id="" type="text" class="form-control" name="local"
+                    <input id="local" type="text" class="form-control" name="local"
                         value="{{ old('local', $backup->local) }}" placeholder="G:\backup">
                     @error('local')
                     <div class="alert alert-danger"><i class="fa fa-exclamation-triangle"></i> {{ $message }}
@@ -47,7 +47,7 @@
                 <label class="col-sm-3 col-form-label" for=""><span class="text-danger">*</span>
                     Agendamento <i>(Inserir hora)</i>:</label>
                 <div class="col-sm-7">
-                    <input id="timeform" type="text" class="form-control" name="agendamento"
+                    <input id="agendamento" type="text" class="form-control" name="agendamento"
                         value="{{ old('agendamento', $backup->agendamento) }}">
                     @error('agendamento')
                     <div class="alert alert-danger"><i class="fa fa-exclamation-triangle"></i> {{ $message }}
@@ -70,8 +70,5 @@
             </div>
         </form>
     </div>
-    <script>
-
-    </script>
-
+    @include('backups/script')
     @endsection

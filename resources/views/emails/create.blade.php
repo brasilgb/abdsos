@@ -26,7 +26,7 @@
 
     <div class="card-body">
         @include("flash::message")
-        <form action="{{ route('emails.store') }}" method="POST" autocomplete="off">
+        <form id="formemail" action="{{ route('emails.store') }}" method="POST" autocomplete="off">
             @method('POST')
             @csrf
             <div class="form-group row">
@@ -99,4 +99,5 @@
             </div>
         </form>
     </div>
+    @include('emails/script')
     @endsection

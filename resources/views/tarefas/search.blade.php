@@ -3,7 +3,7 @@
         @csrf
         @method('POST')
         <div class="input-group">
-            <select class="w-75 custom-select form-control " name="status">
+            <select class="w-75 custom-select form-control " name="status" required>
                 <option value="">Filtrar tarefas por status</option>
                 <option value="1">Aberta</option>
                 <option value="2">Execução</option>

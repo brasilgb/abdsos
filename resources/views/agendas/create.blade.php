@@ -61,7 +61,7 @@
                 <label class="col-sm-3 col-form-label" for=""><span class="text-danger">*</span>
                     Hora:</label>
                 <div class="col-sm-7">
-                    <input id="timeform" type="text" class="form-control" name="hora" value="{{ old('hora') }}">
+                    <input id="agendamento" type="text" class="form-control" name="hora" value="{{ old('hora') }}">
                     @error('hora')
                     <div class="alert alert-danger"><i class="fa fa-exclamation-triangle"></i> {{ $message }}</div>
                     @enderror

@@ -26,7 +26,7 @@
 
     <div class="card-body">
         @include("flash::message")
-        <form action="{{ route('mensagens.store') }}" method="POST" autocomplete="off">
+        <form id="formmensagem" action="{{ route('mensagens.store') }}" method="POST" autocomplete="off">
             @method('POST')
             @csrf
 
@@ -92,8 +92,5 @@
             </div>
         </form>
     </div>
-    <script>
-
-    </script>
-
+    @include('mensagens/script')
     @endsection

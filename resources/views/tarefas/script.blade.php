@@ -1,5 +1,5 @@
 <script>
-  // Valida form add semnas
+  // Valida form tarefas
     $("#formtarefas").validate({
         rules: {
             data_inicio: {
