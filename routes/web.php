@@ -70,6 +70,7 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::get('configuracoes/gerabackup', [BackupController::class, 'gerabackup'])->name('configuracoes.gerabackup');
     Route::get('configuracoes/executabackup', [BackupController::class, 'executabackup'])->name('configuracoes.executabackup');
+    Route::post('configuracoes/restaurabackup', [BackupController::class, 'restaurabackup'])->name('configuracoes.restaurabackup');
     Route::resource('configuracoes/backups', BackupController::class);
 
     Route::resource('configuracoes/empresas', EmpresaController::class);

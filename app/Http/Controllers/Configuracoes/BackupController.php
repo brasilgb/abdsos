@@ -15,10 +15,20 @@ class BackupController extends Controller
      * @var Backup
      */
     protected $backup;
+    protected $backupdata;
+    protected $host;
+    protected $username;
+    protected $password;
+    protected $database;
 
     public function __construct(Backup $backup)
     {
         $this->backup = $backup;
+        $this->backupdata = Backup::orderBy('id_backup', 'DESC')->first();
+        $this->host = 'localhost';
+        $this->username = 'root';
+        $this->password = '16050912';
+        $this->database = 'abdsos';
     }
     /**
      * Display a listing of the resource.
@@ -140,37 +150,44 @@ class BackupController extends Controller
     public function gerabackup()
     {
         $this->createbackup();
-        flash('<i class="fa fa-check"></i> Backup efetuado com sucesso!')->success();
-        return redirect()->route('ferramentas.index');
+
+        return back()->with('success', 'Backup efetuado com sucesso!');
     }
 
     public function createbackup()
     {
-        Artisan::call('cache:clear');
-        Artisan::call('config:cache');
-        $backup = Backup::first();
-        $host = env('DB_HOST');
-        $username = env('DB_USERNAME');
-        $password = env('DB_PASSWORD');
-        $database = env('DB_DATABASE');
-
-        $file = $backup->local . DIRECTORY_SEPARATOR . 'backup-sos.sql';
-
-        if (!is_dir($backup->local)) {
-            mkdir($backup->local, 0777, true);
+        $file = $this->backupdata->local . DIRECTORY_SEPARATOR . 'backup-sos.sql';
+        if (!is_dir($this->backupdata->local)) {
+            mkdir($this->backupdata->local, 0777, true);
         }
 
         if (PHP_OS_FAMILY == 'Linux') {
             // Backup do BD em Linux
-            $dump = "/usr/bin/mysqldump --user={$username} --password={$password} --host={$host} {$database} --result-file={$file} 2>&1";
+            $dump = "/usr/bin/mysqldump --user={$this->username} --password={$this->password} --host={$this->host} {$this->database} --result-file={$file} 2>&1";
             exec($dump);
         }
         if (PHP_OS_FAMILY == 'Windows') {
             // Backup do BD em Windows
-            $dump = "C:\webserver\mariadb\bin\mysqldump -u {$username} -p{$password} -h {$host} {$database} > {$file}";
+            $dump = "C:\webserver\mariadb\bin\mysqldump -u {$this->username} -p{$this->password} -h {$this->host} {$this->database} > {$file}";
             system($dump);
         }
+    }
 
-        return $backup->local;
+    public function restaurabackup(Request $request)
+    {
+        $filename = $request->file('backup')->getClientOriginalName();
+        $file = $this->backupdata->local . DIRECTORY_SEPARATOR . $filename;
+        if (PHP_OS_FAMILY == 'Linux') {
+            // Backup do BD em Linux
+            //$dump = "/usr/bin/mysql --user={$username} --password={$password} --host={$host} {$database} --result-file={$file} 2>&1";
+            $dump = "C:\webserver\mariadb\bin\mysql -u {$this->username} -p{$this->password} -h {$this->host} {$this->database} < {$file}";
+            exec($dump);
+        }
+        if (PHP_OS_FAMILY == 'Windows') {
+            // Backup do BD em Windows
+            $dump = "C:\webserver\mariadb\bin\mysql -u {$this->username} -p{$this->password} -h {$this->host} {$this->database} < {$file}";
+            system($dump);
+        }
+        return back()->with('success', 'Backup restaurado com sucesso!');
     }
 }
