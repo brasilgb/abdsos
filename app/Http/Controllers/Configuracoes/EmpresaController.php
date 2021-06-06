@@ -80,19 +80,19 @@ class EmpresaController extends Controller
         ];
         $validator = Validator::make($data, $rules, $messages)->validate();
             if($request->file('logo')){
-                if (!is_dir(public_path('storage'. DIRECTORY_SEPARATOR .'thumbnail'))):
-                    mkdir(public_path('storage'. DIRECTORY_SEPARATOR .'thumbnail'), '0777', true);
+                if (!is_dir(public_path('thumbnail'))):
+                    mkdir(public_path('thumbnail'), '0777', true);
                 endif;
                 $image = $request->file('logo');
                 $nomeimagem = time() . '.' . $image->extension();
-                $destinationPath = public_path('storage'. DIRECTORY_SEPARATOR .'thumbnail');
+                $destinationPath = public_path('thumbnail');
                 $img = Image::make($image->path());
                 $img->resize(100, 100, function ($constraint) {
                     $constraint->aspectRatio();
                 })->save($destinationPath . DIRECTORY_SEPARATOR . $nomeimagem);
-                $destinationPath = public_path('/storage'. DIRECTORY_SEPARATOR .'images');
+                $destinationPath = public_path('images');
                 $image->move($destinationPath, $nomeimagem);
-                unlink(public_path('storage'. DIRECTORY_SEPARATOR .'images/' . $nomeimagem));
+                unlink(public_path('images/' . $nomeimagem));
                 $data['logo'] = $nomeimagem;
             }
             $data['id_empresa'] = Empresa::idempresa();
@@ -160,20 +160,21 @@ class EmpresaController extends Controller
         ];
         $validator = Validator::make($data, $rules, $messages)->validate();
             if($request->file('logo')){
-                if (!is_dir(public_path('storage'. DIRECTORY_SEPARATOR .'thumbnail')) && !is_dir(public_path('storage'. DIRECTORY_SEPARATOR .'images'))):
-                    mkdir(public_path('storage'. DIRECTORY_SEPARATOR .'thumbnail'), '0777', true);
-                    mkdir(public_path('storage'. DIRECTORY_SEPARATOR .'images'), '0777', true);
+                if (!is_dir(public_path('thumbnail')) && !is_dir(public_path('images'))):
+                    mkdir(public_path('thumbnail'), '0777', true);
+                    mkdir(public_path('images'), '0777', true);
                 endif;
                 $image = $request->file('logo');
                 $nomeimagem = time() . '.' . $image->extension();
-                $destinationPath = public_path('storage'. DIRECTORY_SEPARATOR .'thumbnail');
+                $destinationPath = public_path('thumbnail');
                 $img = Image::make($image->path());
                 $img->resize(100, 100, function ($constraint) {
                     $constraint->aspectRatio();
                 })->save($destinationPath . DIRECTORY_SEPARATOR . $nomeimagem);
-                $destinationPath = public_path('/storage'. DIRECTORY_SEPARATOR .'images');
+                $destinationPath = public_path('images');
                 $image->move($destinationPath, $nomeimagem);
-                unlink(public_path('storage'. DIRECTORY_SEPARATOR .'images/' . $nomeimagem));
+                unlink(public_path('thumbnail/' . $empresa->logo));
+                unlink(public_path('images/' . $nomeimagem));
                 $data['logo'] = $nomeimagem;
             }
             $empresa->update($data);

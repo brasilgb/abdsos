@@ -16,10 +16,10 @@
             <tr>
                 <td>
                     @if(!empty($empresa['logo']))
-                    <img class="logo" src="{{ asset('storage/thumbnail/' . $empresa['logo']) }}"
+                    <img class="logo" src="{{ asset('thumbnail/' . $empresa['logo']) }}"
                         title="{{ $empresa['empresa'] }}">
                     @else
-                    <img style="width:100px;" class="logo" src="{{ asset('storage/images/logo_padrao.jpg') }}" class="brand_logo" alt="Logo padrão">
+                    <img style="width:100px;" class="logo" src="{{ asset('images/logo_padrao.jpg') }}" class="brand_logo" alt="Logo padrão">
                     @endif
                 </td>
                 <td class="center cabecalho">
@@ -96,10 +96,10 @@
             <tr>
                 <td>
                     @if(!empty($empresa['logo']))
-                    <img class="logo" src="{{ asset('storage/thumbnail/' . $empresa['logo']) }}"
+                    <img class="logo" src="{{ asset('thumbnail/' . $empresa['logo']) }}"
                         title="{{ $empresa['empresa'] }}">
                     @else
-                    <img style="width:100px;" class="logo" src="{{ asset('storage/images/logo_padrao.jpg') }}" class="brand_logo" alt="Logo padrão">
+                    <img style="width:100px;" class="logo" src="{{ asset('images/logo_padrao.jpg') }}" class="brand_logo" alt="Logo padrão">
                     @endif
                 </td>
                 <td class="center cabecalho">

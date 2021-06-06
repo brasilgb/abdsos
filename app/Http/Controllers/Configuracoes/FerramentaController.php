@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Configuracoes;
 
 use App\Http\Controllers\Controller;
+use App\Models\Backup;
 use App\Models\Ferramenta;
 use App\Models\Ordem;
 use App\Models\Empresa;
@@ -31,7 +32,8 @@ class FerramentaController extends Controller
     {
         $etiquetainicial = $this->ordem->orderby('id_ordem', 'DESC')->first();
         $empresa = $this->empresa->first();
-        return view('ferramentas.index', compact('etiquetainicial', 'empresa'));
+        $backups = Backup::get();
+        return view('ferramentas.index', compact('etiquetainicial', 'empresa', 'backups'));
     }
 
     public function gretiquetas(Request $request){

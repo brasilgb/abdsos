@@ -24,7 +24,7 @@
             </div>
         </div>
         <div class="card-body">
-            @include("parts/flash-message")
+            @include("flash::message")
             <form action="{{ route('ferramentas.gretiquetas') }}" method="POST" target="_blank">
                 @method('POST')
                 @csrf
@@ -78,7 +78,7 @@
                     <label class="col-sm-3 col-form-label" for="">
                         Gerar backup</label>
                     <div class="col-sm-7">
-                        <button id="" class="btn btn-primary" name="usuario"><i class="fa fa-download"></i> Gerar</button>
+                        <button @if($backups->count() == 0) disabled @endif class="btn btn-primary" name="usuario"><i class="fa fa-download"></i> Gerar</button>
                     </div>
                 </div>
             </form>
@@ -93,7 +93,7 @@
                                 Restaurar Backup:</label>
                             <div class="col-7">
                                 <div class="custom-file">
-                                    <input type="file" class="custom-file-input" name="backup" id="validatedCustomFile">
+                                    <input type="file" class="custom-file-input" name="backup" id="validatedCustomFile" required>
                                     <label class="custom-file-label" for="validatedCustomFile">Selecione o arquivo sql...</label>
                                 </div>
 

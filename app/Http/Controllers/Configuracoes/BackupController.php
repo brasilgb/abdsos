@@ -150,8 +150,8 @@ class BackupController extends Controller
     public function gerabackup()
     {
         $this->createbackup();
-
-        return back()->with('success', 'Backup efetuado com sucesso!');
+        flash('<i class="fa fa-check"></i> Backup gerado com sucesso!')->success();
+        return back();
     }
 
     public function createbackup()
@@ -188,6 +188,7 @@ class BackupController extends Controller
             $dump = "C:\webserver\mariadb\bin\mysql -u {$this->username} -p{$this->password} -h {$this->host} {$this->database} < {$file}";
             system($dump);
         }
-        return back()->with('success', 'Backup restaurado com sucesso!');
+        flash('<i class="fa fa-check"></i> Backup restaurado com sucesso!')->success();
+        return back();
     }
 }

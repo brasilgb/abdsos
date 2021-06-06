@@ -8,10 +8,10 @@
                 <div class="d-flex justify-content-center">
                     <div class="brand_logo_container">
                         @if (!empty($empresa->logo))
-                            <img src="{{ asset('storage/thumbnail/'.$empresa->logo) }}" class="brand_logo"
+                            <img src="{{ asset('thumbnail/'.$empresa->logo) }}" class="brand_logo"
                                 alt="Logo">
                         @else
-                            <img src="{{ asset('storage/images/logo_padrao.jpg') }}" class="brand_logo" alt="Logo">
+                            <img src="{{ asset('images/logo_padrao.jpg') }}" class="brand_logo" alt="Logo">
                         @endif
 
                     </div>

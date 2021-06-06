@@ -9,7 +9,7 @@ $empresa = App\Models\Empresa::first();
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>ABSOS - @if(empty($empresa->empresa)) ABSOS @else {{ $empresa->empresa }} @endif</title>
     <link rel="shortcut icon"
-        href="@if(empty($empresa->logo)) {{ asset('storage/images/logo_padrao.jpg') }} @else {{ asset('storage/thumbnail/'.$empresa->logo) }} @endif">
+        href="@if(empty($empresa->logo)) {{ asset('images/logo_padrao.jpg') }} @else {{ asset('thumbnail/'.$empresa->logo) }} @endif">
 
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/jquery.validate.min.js') }}"></script>

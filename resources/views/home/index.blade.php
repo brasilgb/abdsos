@@ -6,7 +6,7 @@
         atualizaRelogio();
     });
 </script>
-@include("parts/flash-message")
+@include("flash::message")
 <div class="bg-gray-200 mb-3 mt-0 p-2 shadow-sm border border-white rounded">
     <div class="row">
         <div class="col">

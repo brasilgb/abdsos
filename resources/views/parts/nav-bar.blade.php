@@ -2,7 +2,7 @@
     <div class="container">
 
         <a height="30" class="navbar-brand" href="{{ route('home') }}">
-            <img height="30" class="rounded" src="@if(empty($empresa->logo)) {{ asset('storage/images/logo_padrao.jpg') }} @else {{ asset('storage/thumbnail/'.$empresa->logo) }} @endif" alt="Logo">
+            <img height="30" class="rounded" src="@if(empty($empresa->logo)) {{ asset('images/logo_padrao.jpg') }} @else {{ asset('thumbnail/'.$empresa->logo) }} @endif" alt="Logo">
         </a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
