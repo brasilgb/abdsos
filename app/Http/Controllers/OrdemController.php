@@ -148,10 +148,10 @@ class OrdemController extends Controller
         $ordens = $this->ordem->orderby('id_ordem', 'ASC')->get();
         if ($ordens->count() > 0) :
             foreach ($ordens as $next) :
-                $proxordem = Str::padLeft($next->id_ordem + 1, 7, 0);
+                $proxordem = $next->id_ordem;
             endforeach;
         else :
-            $proxordem = Str::padLeft(1, 7, 0);
+            $proxordem = 1;
         endif;
         return view('ordens.create', compact('proxordem'));
     }
