@@ -51,7 +51,7 @@ class AgendaController extends Controller
     public function index()
     {
         $term = '';
-        $agendas = $this->agenda->orderBy('id_agenda', 'DESC')->paginate(15);
+        $agendas = $this->agenda->orderBy('id_agenda', 'DESC')->paginate(9);
         return view('agendas.index', compact('agendas', 'term'));
     }
 

@@ -55,7 +55,7 @@ class OrdemController extends Controller
             $link_blank = false;
         endif;
         $term = '';
-        $ordens = $this->ordem->orderby('id_ordem', 'DESC')->paginate(15);
+        $ordens = $this->ordem->orderby('id_ordem', 'DESC')->paginate(9);
         return view('ordens.index', compact('ordens', 'term', 'link_blank'));
     }
 
@@ -148,7 +148,7 @@ class OrdemController extends Controller
         $ordens = $this->ordem->orderby('id_ordem', 'ASC')->get();
         if ($ordens->count() > 0) :
             foreach ($ordens as $next) :
-                $proxordem = Str::padLeft($next->id_ordem + 1, 7, 0);
+                $proxordem = Str::padLeft($next->id_ordem + 1, 8, 0);
             endforeach;
         else :
             $proxordem = Str::padLeft(1, 7, 0);

@@ -33,7 +33,7 @@ class PecaController extends Controller
     {
         $term = '';
         $estoque = Estoque_peca::get();
-        $pecas = $this->peca->orderBy('id_peca', 'DESC')->paginate(15);
+        $pecas = $this->peca->orderBy('id_peca', 'DESC')->paginate(9);
         return view('pecas.index', compact('pecas', 'estoque', 'term'));
     }
 

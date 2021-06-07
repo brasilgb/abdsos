@@ -125,6 +125,7 @@
             '2' => 'Em atendimento',
             '3' => 'Cancelado',
             '4' => 'Concluído',
+            '5' => 'Finalizado'
             ];
             @endphp
             <div class="form-group row">
