@@ -29,7 +29,7 @@
                     {{ $empresa['bairro'] }}<br>
                     {{ $empresa['cidade'] }} -
                     {{ $empresa['uf'] }} <br>
-                    {{ $empresa['site'] }} -
+                    {{ !$empresa['site']? ' ' :$empresa['site'].' - ' }}
                     {{ $empresa['email'] }}<br>
                     {{ $empresa['telefone'] }}
                 </td>
@@ -109,7 +109,7 @@
                     {{ $empresa['bairro'] }}<br>
                     {{ $empresa['cidade'] }} -
                     {{ $empresa['uf'] }} <br>
-                    {{ $empresa['site'] }} -
+                    {{ !$empresa['site']? ' ' :$empresa['site'].' - ' }}
                     {{ $empresa['email'] }}<br>
                     {{ $empresa['telefone'] }}
                 </td>

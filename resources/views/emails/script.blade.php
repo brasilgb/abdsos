@@ -23,7 +23,7 @@
         messages: {
             servidor: 'Digite o endereco do servidor!',
             porta: {
-                require: 'Digite o número da porta do servidor!',
+                required: 'Digite o número da porta do servidor!',
                 number: 'Somente números!'
             },
             seguranca: 'Digite o tipo de seguranca do servidor!',
