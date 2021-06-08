@@ -24,5 +24,7 @@ function atualizaRelogio(){
 
 			setTimeout("atualizaRelogio()",1000);
 		}
+
+})
 </script>
 

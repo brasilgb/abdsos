@@ -109,21 +109,21 @@
                     <a class="nav-link active" id="aguardando-tab" data-toggle="tab" href="#aguardando" role="tab"
                         aria-controls="aguardando" aria-selected="true"><i class="fa fa-calendar"></i> Agendamentos
                         aguardando atendimento
-                    ({{$agendas->where('status', 1)->count()}})
+                    <span class="badge border border-5 px-2 py-1">{{$agendas->where('status', 1)->count()}}</span>
                     </a>
                 </li>
                 <li class="nav-item" role="presentation">
                     <a class="nav-link" id="atendimento-tab" data-toggle="tab" href="#atendimento" role="tab"
                         aria-controls="atendimento" aria-selected="false"><i class="fa fa-calendar"></i> Agendamentos em
                         atendimento
-                        ({{$agendas->where('status', 2)->count()}})
+                        <span class="badge border border-5 px-2 py-1">{{$agendas->where('status', 2)->count()}}</span>
                     </a>
                 </li>
                 <li class="nav-item" role="presentation">
                     <a class="nav-link" id="concluido-tab" data-toggle="tab" href="#concluido" role="tab"
                         aria-controls="concluido" aria-selected="false"><i class="fa fa-calendar"></i> Agendamentos
                         concluídos
-                        ({{$agendas->where('status', 4)->count()}})
+                        <span class="badge border border-5 px-2 py-1">{{$agendas->where('status', 4)->count()}}</span>
                     </a>
                 </li>
             </ul>
@@ -226,19 +226,19 @@
                 <li class="nav-item" role="presentation">
                     <a class="nav-link active" id="gerado-tab" data-toggle="tab" href="#gerado" role="tab"
                         aria-controls="gerado" aria-selected="true"><i class="fa fa-tools"></i> OS - Orçamentos gerados
-                        ({{$ordens->where('status', 2)->count()}})
+                        <span class="badge border border-5 px-2 py-1">{{$ordens->where('status', 2)->count()}}</span>
                     </a>
                 </li>
                 <li class="nav-item" role="presentation">
                     <a class="nav-link" id="aprovado-tab" data-toggle="tab" href="#aprovado" role="tab"
                         aria-controls="aprovado" aria-selected="false"><i class="fa fa-tools"></i> OS - Orçamentos aprovados
-                        ({{$ordens->where('status', 3)->count()}})</a>
+                        <span class="badge border border-5 px-2 py-1">{{$ordens->where('status', 3)->count()}}</span></a>
                 </li>
                 <li class="nav-item" role="presentation">
                     <a class="nav-link" id="servicoconcluido-tab" data-toggle="tab" href="#servicoconcluido" role="tab"
                         aria-controls="servicoconcluido" aria-selected="false"><i class="fa fa-tools"></i> OS - Serviços
                         concluídos
-                        ({{$ordens->where('status', 5)->count()}})
+                        <span class="badge border border-5 px-2 py-1">{{$ordens->where('status', 5)->count()}}</span>
                     </a>
                 </li>
             </ul>

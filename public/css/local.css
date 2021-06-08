@@ -189,6 +189,8 @@ a[disabled] {
     height: 250px!important;
 }
 
-
+.border-5{
+    border-width: 5px!important;
+}
 
 
