@@ -51,25 +51,12 @@
                             <span class="input-group-text"><i class="fas fa-at"></i></span>
                         </div>
                         <input type="text" name="email" class="form-control input_user @error('email') is-invalid @enderror" value="{{ old('email') }}"
-                            placeholder="Digite o E-mail da compra" autofocus>
+                            placeholder="Digite o E-mail" autofocus>
                         @error('email')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
                         @enderror
-                    </div>
-
-                    <div class="input-group mb-3">
-                        <div class="input-group-append">
-                            <span class="input-group-text"><i class="fas fa-unlock-alt"></i></span>
-                        </div>
-                        <input type="text" name="chave" class="form-control input_user  @error('chave') is-invalid @enderror" value="{{ old('chave') }}"
-                            placeholder="Digite a chave que recebeu" autofocus>
-                            @error('chave')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
                     </div>
 
                     <div class="input-group mb-3">
@@ -126,10 +113,6 @@
                     required: true,
                     email: true
                 },
-                chave: {
-                    required: true,
-                    minlength: 40
-                },
                 password: {
                     required: true,
                     minlength: 6
@@ -147,10 +130,6 @@
                 email: {
                     required: 'Digite um e-mail!',
                     email: 'Digite um e-mail válido!'
-                },
-                chave: {
-                    required: 'Digite a chave!',
-                    minlength: 'Mínimo 40 caracteres'
                 },
                 password: {
                     required: 'Digite a senha!',

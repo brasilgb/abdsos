@@ -56,14 +56,13 @@ class RegisterController extends Controller
             'required' => 'O campo :attribute deve ser preenchido!',
             'email' => 'O campo :attribute não é válido!',
             'unique' => 'O campo :attribute já está em uso, digite outro!',
-            'min' => 'A :attribute deve ter no mínimo 40 caracteres!',
+            'min' => 'A :attribute deve ter no mínimo 6 caracteres!',
             'exists' => 'A :attribute adicionada é inválida!'
         );
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'username' => ['required', 'string', 'max:255', 'unique:users'],
-            'email' => ['required', 'string','email', 'unique:mysql2.sos_clientes'],
-            'chave' => ['required', 'string',  'min:40','unique:mysql2.sos_clientes','exists:mysql2.sos_licencas'],
+            'email' => ['required', 'string','email'],
             'password' => ['required', 'string', 'min:6', 'confirmed'],
         ], $message);
 
@@ -77,14 +76,11 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        Abrasilcl::create(['name' => $data['name'], 'email' => $data['email'], 'chave' => $data['chave'], 'ativo' => 1]);
-        Abrasillc::where('chave', $data['chave'])->update(['email' => $data['email']]);
         return User::create([
             'id' => User::iduser(),
             'name' => $data['name'],
             'username' => $data['username'],
             'email' => $data['email'],
-            'chave' => $data['chave'],
             'funcao' => 0,
             'password' => Hash::make($data['password'])
         ]);

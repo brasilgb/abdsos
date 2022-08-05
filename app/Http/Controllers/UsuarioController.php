@@ -152,22 +152,4 @@ class UsuarioController extends Controller
         flash('<i class="fa fa-check"></i> Usuário deletado com sucesso!')->success();
         return redirect()->route('usuarios.index');
     }
-
-    /**
-     * Autocomplete campo usuario
-     */
-    public function autocomplete(Request $request)
-    {
-        $term = $request->input('term');
-        if ($term == '') :
-            $usuarios = $this->user->orderby('name', 'ASC')->select('id', 'name')->limit(5)->get();
-        else :
-            $usuarios = $this->user->orderby('name', 'ASC')->select('id', 'name')->where('name', 'LIKE', $term . '%')->get();
-        endif;
-
-        foreach ($usuarios as $usuario) {
-            $response[] = ['value' => $usuario->id, 'label' => $usuario->name];
-        }
-        return response()->json($response);
-    }
 }
